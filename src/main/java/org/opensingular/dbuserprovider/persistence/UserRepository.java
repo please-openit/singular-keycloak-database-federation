@@ -1,11 +1,11 @@
 package org.opensingular.dbuserprovider.persistence;
 
-import lombok.extern.jbosslog.JBossLog;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.NotImplementedException;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import org.jboss.logging.Logger;
 import org.opensingular.dbuserprovider.DBUserStorageException;
 import org.opensingular.dbuserprovider.model.QueryConfigurations;
 import org.opensingular.dbuserprovider.util.PBKDF2SHA256HashingUtil;
@@ -22,10 +22,9 @@ import java.util.*;
 import java.util.function.Function;
 
 
-@JBossLog
 public class UserRepository {
-    
-    
+
+    private static final Logger log = Logger.getLogger(UserRepository.class);
     private DataSourceProvider  dataSourceProvider;
     private QueryConfigurations queryConfigurations;
     

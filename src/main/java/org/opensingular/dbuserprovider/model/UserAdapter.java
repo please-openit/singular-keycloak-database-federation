@@ -2,6 +2,7 @@ package org.opensingular.dbuserprovider.model;
 
 import lombok.extern.jbosslog.JBossLog;
 import org.apache.commons.lang3.StringUtils;
+import org.jboss.logging.Logger;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;
@@ -16,9 +17,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@JBossLog
 public class UserAdapter extends AbstractUserAdapterFederatedStorage {
 
+    private static final Logger log = Logger.getLogger(UserAdapter.class);
     private final String keycloakId;
     private       String username;
 

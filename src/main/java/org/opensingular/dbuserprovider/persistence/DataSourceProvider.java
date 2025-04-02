@@ -5,6 +5,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.jbosslog.JBossLog;
 import org.apache.commons.lang3.StringUtils;
+import org.jboss.logging.Logger;
 
 import javax.sql.DataSource;
 import java.io.Closeable;
@@ -14,9 +15,9 @@ import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@JBossLog
 public class DataSourceProvider implements Closeable {
-    
+
+    private static final Logger log = Logger.getLogger(DataSourceProvider.class);
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
     private              ExecutorService  executor           = Executors.newFixedThreadPool(1);
     private              HikariDataSource hikariDataSource;

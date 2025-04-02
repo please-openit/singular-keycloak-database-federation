@@ -1,7 +1,6 @@
 package org.opensingular.dbuserprovider;
 
-import com.google.auto.service.AutoService;
-import lombok.extern.jbosslog.JBossLog;
+import org.jboss.logging.Logger;
 import org.keycloak.Config;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.component.ComponentValidationException;
@@ -18,10 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@JBossLog
-@AutoService(UserStorageProviderFactory.class)
 public class DBUserStorageProviderFactory implements UserStorageProviderFactory<DBUserStorageProvider> {
-    
+
+    private static final Logger log = Logger.getLogger(DBUserStorageProviderFactory.class);
     private static final String PARAMETER_PLACEHOLDER_HELP = "Use '?' as parameter placeholder character (replaced only once). ";
     private static final String DEFAULT_HELP_TEXT          = "Select to query all users you must return at least: \"id\". " +
                                                              "            \"username\"," +
